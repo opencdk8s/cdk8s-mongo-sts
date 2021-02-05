@@ -44,7 +44,7 @@ jobs:
     container:
       image: jsii/superchain
   release_npm:
-    name: Release to NPM
+    name: Release to Github NPM Registry
     needs: build
     runs-on: ubuntu-latest
     container:
@@ -58,9 +58,9 @@ jobs:
       - name: Release
         run: npx -p jsii-release@latest jsii-release-npm
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_DIST_TAG: latest
-          NPM_REGISTRY: registry.npmjs.org
+          NPM_REGISTRY: npm.pkg.github.com
   release_pypi:
     name: Release to PyPi
     needs: build
