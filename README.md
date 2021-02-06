@@ -4,7 +4,7 @@ Create a Replicated, Password protected MongoDB Statefulset on Kubernetes, power
 
 ## Overview
 
-**cdk8s-sts-mongo** is a [cdk8s](https://cdk8s.io) library, and also uses [cvallance/mongo-k8s-sidecar](https://github.com/cvallance/mongo-k8s-sidecar) to manage the MongoDB replicaset.
+**cdk8s-mongo-sts** is a [cdk8s](https://cdk8s.io) library, and also uses [cvallance/mongo-k8s-sidecar](https://github.com/cvallance/mongo-k8s-sidecar) to manage the MongoDB replicaset.
 
 ```typescript
 import { Construct } from 'constructs';
