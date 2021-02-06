@@ -49,14 +49,29 @@ const project = new ConstructLibraryCdk8s({
   // minNodeVersion: undefined,                                                /* Minimum Node.js version to require via package.json `engines` (inclusive). */
   // npmAccess: undefined,                                                     /* Access level of the npm package. */
   // npmDistTag: 'latest',                                                     /* Tags can be used to provide an alias instead of version numbers. */
-  npmRegistryUrl: 'https://npm.pkg.github.com',                             /* The base URL of the npm package registry. */
+  npmRegistryUrl:
+    "https://npm.pkg.github.com" /* The base URL of the npm package registry. */,
   // npmTaskExecution: NpmTaskExecution.PROJEN,                                /* Determines how tasks are executed when invoked as npm scripts (yarn/npm run xyz). */
   // packageManager: NodePackageManager.YARN,                                  /* The Node Package Manager used to execute scripts. */
   // packageName: undefined,                                                   /* The "name" in package.json. */
   // peerDependencyOptions: undefined,                                         /* Options for `peerDeps`. */
   peerDeps: ["constructs@3.3.5"],
 
-  devDeps: ["constructs@3.3.5", "prettier@^2.2.1", "@commitlint/config-conventional@^11.0.0", "@commitlint/cli@^11.0.0"],
+  devDeps: [
+    "constructs@3.3.5",
+    "prettier@^2.2.1",
+    "jsii-pacmak@^1.20.1",
+    "@commitlint/config-conventional@^11.0.0",
+    "@commitlint/cli@^11.0.0",
+    "eslint-import-resolver-node@^0.3.4",
+    "eslint-import-resolver-typescript@^2.3.0",
+    "eslint-plugin-import@^2.22.1",
+    "eslint@^7.19.0",
+    "jsii-diff@^1.20.1",
+    "jsii-docgen@^1.8.36",
+    "jsii@^1.20.1",
+    "json-schema@^0.3.0",
+  ],
 
   //deps: ["constructs@^3.3.5"],
   /* Peer dependencies for this module. */
