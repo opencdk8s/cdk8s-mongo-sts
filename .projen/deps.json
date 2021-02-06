@@ -59,11 +59,31 @@
       "type": "build"
     },
     {
+      "name": "eslint-import-resolver-node",
+      "version": "^0.3.4",
+      "type": "build"
+    },
+    {
       "name": "eslint-import-resolver-typescript",
       "type": "build"
     },
     {
+      "name": "eslint-import-resolver-typescript",
+      "version": "^2.3.0",
+      "type": "build"
+    },
+    {
       "name": "eslint-plugin-import",
+      "type": "build"
+    },
+    {
+      "name": "eslint-plugin-import",
+      "version": "^2.22.1",
+      "type": "build"
+    },
+    {
+      "name": "eslint",
+      "version": "^7.19.0",
       "type": "build"
     },
     {
@@ -75,7 +95,17 @@
       "type": "build"
     },
     {
+      "name": "jsii-diff",
+      "version": "^1.20.1",
+      "type": "build"
+    },
+    {
       "name": "jsii-docgen",
+      "type": "build"
+    },
+    {
+      "name": "jsii-docgen",
+      "version": "^1.8.36",
       "type": "build"
     },
     {
@@ -83,7 +113,22 @@
       "type": "build"
     },
     {
+      "name": "jsii-pacmak",
+      "version": "^1.20.1",
+      "type": "build"
+    },
+    {
+      "name": "jsii",
+      "version": "^1.20.1",
+      "type": "build"
+    },
+    {
       "name": "json-schema",
+      "type": "build"
+    },
+    {
+      "name": "json-schema",
+      "version": "^0.3.0",
       "type": "build"
     },
     {
