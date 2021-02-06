@@ -128,4 +128,13 @@ const project = new ConstructLibraryCdk8s({
   readme: true /* The README setup. */,
 });
 
+const workflow = project.github.addWorkflow('skipci');
+
+workflow.addJobs({
+  skipci: {
+    'runs-on': 'ubuntu-latest',
+    'if': '!contains(github.event.head_commit.message, \'[ci skip]\')'
+  },
+});
+
 project.synth();
