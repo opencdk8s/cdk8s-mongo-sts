@@ -54,9 +54,9 @@ const project = new ConstructLibraryCdk8s({
   // packageManager: NodePackageManager.YARN,                                  /* The Node Package Manager used to execute scripts. */
   // packageName: undefined,                                                   /* The "name" in package.json. */
   // peerDependencyOptions: undefined,                                         /* Options for `peerDeps`. */
-  peerDeps: ["constructs@^3.3.5"],
+  peerDeps: ["constructs@3.3.5"],
 
-  devDeps: ["constructs@^3.3.5", "prettier", "@commitlint/config-conventional", "@commitlint/cli"],
+  devDeps: ["constructs@3.3.5", "prettier", "@commitlint/config-conventional", "@commitlint/cli"],
 
   //deps: ["constructs@^3.3.5"],
   /* Peer dependencies for this module. */
