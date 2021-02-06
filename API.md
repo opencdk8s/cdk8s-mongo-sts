@@ -37,10 +37,13 @@ new MyMongo(scope: Construct, name: string, opts: STSOptions)
 * **name** (<code>string</code>)  *No description*
 * **opts** (<code>[STSOptions](#cdk8s-mongo-sts-stsoptions)</code>)  *No description*
   * **image** (<code>string</code>)  The Docker image to use for this app. 
+  * **createStorageClass** (<code>boolean</code>)  Option to create storage class, if enabled, a storage class will be created for the statefulset. __*Default*__: true
   * **defaultReplicas** (<code>number</code>)  Number of replicas. __*Default*__: 3
   * **namespace** (<code>string</code>)  The Kubernetes namespace where this app to be deployed. __*Default*__: 'default'
   * **resources** (<code>[ResourceRequirements](#cdk8s-mongo-sts-resourcerequirements)</code>)  Resources requests for the DB. __*Default*__: Requests = { CPU = 200m, Mem = 256Mi }, Limits = { CPU = 400m, Mem = 512Mi }
-  * **storageClass** (<code>string</code>)  The storage class to use for our PVC. __*Optional*__
+  * **storageClassName** (<code>string</code>)  The storage class to use for our PVC. __*Default*__: 'gp2-expandable'
+  * **storageClassParams** (<code>Map<string, string></code>)  Storage class params. __*Default*__: { type = gp2, fsType: ext4 }
+  * **volumeProvisioner** (<code>string</code>)  Each StorageClass has a provisioner that determines what volume plugin is used for provisioning PVs. __*Default*__: 'kubernetes.io/aws-ebs'
   * **volumeSize** (<code>string</code>)  The Volume size of our DB in string, e.g 10Gi, 20Gi. __*Optional*__
 
 
@@ -93,10 +96,13 @@ Name | Type | Description
 Name | Type | Description 
 -----|------|-------------
 **image**🔹 | <code>string</code> | The Docker image to use for this app.
+**createStorageClass**?🔹 | <code>boolean</code> | Option to create storage class, if enabled, a storage class will be created for the statefulset.<br/>__*Default*__: true
 **defaultReplicas**?🔹 | <code>number</code> | Number of replicas.<br/>__*Default*__: 3
 **namespace**?🔹 | <code>string</code> | The Kubernetes namespace where this app to be deployed.<br/>__*Default*__: 'default'
 **resources**?🔹 | <code>[ResourceRequirements](#cdk8s-mongo-sts-resourcerequirements)</code> | Resources requests for the DB.<br/>__*Default*__: Requests = { CPU = 200m, Mem = 256Mi }, Limits = { CPU = 400m, Mem = 512Mi }
-**storageClass**?🔹 | <code>string</code> | The storage class to use for our PVC.<br/>__*Optional*__
+**storageClassName**?🔹 | <code>string</code> | The storage class to use for our PVC.<br/>__*Default*__: 'gp2-expandable'
+**storageClassParams**?🔹 | <code>Map<string, string></code> | Storage class params.<br/>__*Default*__: { type = gp2, fsType: ext4 }
+**volumeProvisioner**?🔹 | <code>string</code> | Each StorageClass has a provisioner that determines what volume plugin is used for provisioning PVs.<br/>__*Default*__: 'kubernetes.io/aws-ebs'
 **volumeSize**?🔹 | <code>string</code> | The Volume size of our DB in string, e.g 10Gi, 20Gi.<br/>__*Optional*__
 
 
