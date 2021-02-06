@@ -56,7 +56,7 @@ const project = new ConstructLibraryCdk8s({
   // peerDependencyOptions: undefined,                                         /* Options for `peerDeps`. */
   peerDeps: ["constructs@3.3.5"],
 
-  devDeps: ["constructs@3.3.5", "prettier", "@commitlint/config-conventional@^11.0.0", "@commitlint/cli@^11.0.0"],
+  devDeps: ["constructs@3.3.5", "prettier@^2.2.1", "@commitlint/config-conventional@^11.0.0", "@commitlint/cli@^11.0.0"],
 
   //deps: ["constructs@^3.3.5"],
   /* Peer dependencies for this module. */
