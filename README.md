@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# replace this
-=======
 # cdk8s-mongo-sts
 
 Create a Replicated, Password protected MongoDB Statefulset on Kubernetes, powered by the [cdk8s project](https://cdk8s.io) 🚀
@@ -227,4 +224,3 @@ $ pip install cdk8s-mongo-sts
 ## Author
 
 [Hunter-Thompson](https://github.com/Hunter-Thompson)
->>>>>>> 06e84a16c1f4fe27434c667924bc2aa305e2e1b0
