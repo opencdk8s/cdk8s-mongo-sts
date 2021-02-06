@@ -58,7 +58,7 @@ const project = new ConstructLibraryCdk8s({
 
   devDeps: ["constructs@^3.3.5", "prettier", "@commitlint/config-conventional", "@commitlint/cli"],
 
-  deps: ["constructs@^3.3.5"],
+  //deps: ["constructs@^3.3.5"],
   /* Peer dependencies for this module. */
   // projenCommand: 'npx projen',                                              /* The shell command to use in order to run the projen CLI. */
   // repository: undefined,                                                    /* The repository is the location where the actual code for your package lives. */
