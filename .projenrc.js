@@ -1,23 +1,23 @@
-const { ConstructLibraryCdk8s } = require('projen');
+const { ConstructLibraryCdk8s } = require("projen");
 
 const project = new ConstructLibraryCdk8s({
-  author: 'Hunter Thompson',
-  authorAddress: 'aatman@auroville.org.in',
-  cdk8sVersion: '1.0.0-beta.8',
-  defaultReleaseBranch: 'main',
-  stability: 'experimental',
-  jsiiFqn: 'projen.ConstructLibraryCdk8s',
-  name: 'cdk8s-mongo-sts',
-  repositoryUrl: 'https://github.com/Hunter-Thompson/cdk8s-mongo-sts',
+  author: "Hunter Thompson",
+  authorAddress: "aatman@auroville.org.in",
+  cdk8sVersion: "1.0.0-beta.8",
+  defaultReleaseBranch: "main",
+  stability: "experimental",
+  jsiiFqn: "projen.ConstructLibraryCdk8s",
+  name: "cdk8s-mongo-sts",
+  repositoryUrl: "https://github.com/Hunter-Thompson/cdk8s-mongo-sts",
 
   /* ConstructLibraryOptions */
   // catalog: undefined,                                                       /* Libraries will be picked up by the construct catalog when they are published to npm as jsii modules and will be published under:. */
   python: {
-    distName: 'cdk8s-mongo-sts',
-    module: 'cdk8s_mongo_sts',
+    distName: "cdk8s-mongo-sts",
+    module: "cdk8s_mongo_sts",
   },
   /* JsiiProjectOptions */
-  compat: false, /* Automatically run API compatibility test against the latest version published to npm after compilation. */
+  compat: false /* Automatically run API compatibility test against the latest version published to npm after compilation. */,
   // compatIgnore: '.compatignore',                                            /* Name of the ignore file for API compatibility tests. */
   // docgen: true,                                                             /* Automatically generate API.md from jsii. */
   // eslint: true,                                                             /* Install eslint. */
@@ -54,17 +54,11 @@ const project = new ConstructLibraryCdk8s({
   // packageManager: NodePackageManager.YARN,                                  /* The Node Package Manager used to execute scripts. */
   // packageName: undefined,                                                   /* The "name" in package.json. */
   // peerDependencyOptions: undefined,                                         /* Options for `peerDeps`. */
-  peerDeps: [
-    'constructs@^3.3.5',
-  ],
+  peerDeps: ["constructs@^3.3.5"],
 
-  devDeps: [
-    'constructs@^3.3.5',
-  ],
+  devDeps: ["constructs@^3.3.5", "prettier", "@commitlint/config-conventional", "@commitlint/cli"],
 
-  deps: [
-    'constructs@^3.3.5',
-  ],
+  deps: ["constructs@^3.3.5"],
   /* Peer dependencies for this module. */
   // projenCommand: 'npx projen',                                              /* The shell command to use in order to run the projen CLI. */
   // repository: undefined,                                                    /* The repository is the location where the actual code for your package lives. */
@@ -80,13 +74,10 @@ const project = new ConstructLibraryCdk8s({
   // codeCovTokenSecret: undefined,                                            /* Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories. */
   // copyrightOwner: undefined,                                                /* License copyright owner. */
   // copyrightPeriod: undefined,                                               /* The copyright years to put in the LICENSE file. */
-  dependabot: false, /* Include dependabot configuration. */
+  dependabot: false /* Include dependabot configuration. */,
   // dependabotOptions: undefined,                                             /* Options for dependabot. */
-  gitignore: [
-    'package.json',
-    'test/',
-  ], /* Additional entries to .gitignore. */
-  jest: false, /* Setup jest unit tests. */
+  gitignore: ["package.json", "test/"] /* Additional entries to .gitignore. */,
+  jest: false /* Setup jest unit tests. */,
   // jestOptions: undefined,                                                   /* Jest options. */
   // jsiiReleaseVersion: 'latest',                                             /* Version requirement of `jsii-release` which is used to publish modules to npm. */
   // mergify: true,                                                            /* Adds mergify configuration. */
@@ -99,7 +90,7 @@ const project = new ConstructLibraryCdk8s({
   // projenUpgradeSchedule: [ '0 6 * * *' ],                                   /* Customize the projenUpgrade schedule in cron expression. */
   // projenUpgradeSecret: undefined,                                           /* Periodically submits a pull request for projen upgrades (executes `yarn projen:upgrade`). */
   // projenVersion: Semver.latest(),                                           /* Version of projen to install. */
-  pullRequestTemplate: false, /* Include a GitHub pull request template. */
+  pullRequestTemplate: false /* Include a GitHub pull request template. */,
   // pullRequestTemplateContents: undefined,                                   /* The contents of the pull request template. */
   // rebuildBot: undefined,                                                    /* Installs a GitHub workflow which is triggered when the comment "@projen rebuild" is added to a pull request. */
   // rebuildBotCommand: 'rebuild',                                             /* The pull request bot command to use in order to trigger a rebuild and commit of the contents of the branch. */
@@ -113,14 +104,14 @@ const project = new ConstructLibraryCdk8s({
   // workflowNodeVersion: undefined,                                           /* The node version to use in GitHub workflows. */
 
   /* ProjectOptions */
-  clobber: false, /* Add a `clobber` task which resets the repo to origin. */
+  clobber: false /* Add a `clobber` task which resets the repo to origin. */,
   // devContainer: false,                                                      /* Add a VSCode development environment (used for GitHub Codespaces). */
   // gitpod: false,                                                            /* Add a Gitpod development environment. */
   // logging: {},                                                              /* Configure logging options such as verbosity. */
   // outdir: '.',                                                              /* The root directory of the project. */
   // parent: undefined,                                                        /* The parent project, if this project is part of a bigger project. */
   // projectType: ProjectType.UNKNOWN,                                         /* Which type of project this is (library/app). */
-  readme: true, /* The README setup. */
+  readme: true /* The README setup. */,
 });
 
 project.synth();

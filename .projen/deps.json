@@ -1,6 +1,14 @@
 {
   "dependencies": [
     {
+      "name": "@commitlint/cli",
+      "type": "build"
+    },
+    {
+      "name": "@commitlint/config-conventional",
+      "type": "build"
+    },
+    {
       "name": "@types/node",
       "version": "^10.17.0",
       "type": "build"
@@ -74,6 +82,10 @@
     },
     {
       "name": "json-schema",
+      "type": "build"
+    },
+    {
+      "name": "prettier",
       "type": "build"
     },
     {
