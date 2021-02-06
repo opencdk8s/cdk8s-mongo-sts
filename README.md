@@ -7,13 +7,34 @@ Create a Replicated, Password protected MongoDB Statefulset on Kubernetes, power
 **cdk8s-sts-mongo** is a [cdk8s](https://cdk8s.io) library, and also uses [cvallance/mongo-k8s-sidecar](https://github.com/cvallance/mongo-k8s-sidecar) to manage the MongoDB replicaset.
 
 ```typescript
-new MyMongo(this, 'dev', {
-    image: 'mongo',
-    namespace: 'databases',
-    defaultReplicas: 3,
-    volumeSize: '10Gi',
-    storageClass: 'gp2',
-});
+import { Construct } from 'constructs';
+import { App, Chart, ChartProps } from 'cdk8s';
+import { MyMongo } from 'cdk8s-mongo-sts';
+
+export class MyChart extends Chart {
+  constructor(scope: Construct, id: string, props: ChartProps = { }) {
+    super(scope, id, props);
+        new MyMongo(this, 'dev', {
+            image: 'mongo',
+            namespace: 'databases',
+            defaultReplicas: 3,
+            volumeSize: '10Gi',
+            createStorageClass: true,
+            volumeProvisioner: 'kubernetes.io/aws-ebs',
+            storageClassName: "io1-slow",
+            storageClassParams: {
+              type: 'io1',
+              fsType: 'ext4',
+              iopsPerGB: "10",
+            },
+        });
+
+  }
+}
+
+const app = new App();
+new MyChart(app, 'asd');
+app.synth();
 ```
 
 Create a secret for your DB that starts with the same name as your Statefulset with the following keys :
@@ -25,12 +46,24 @@ password
 
 See [this](https://kubernetes.io/docs/concepts/configuration/secret/) for documentation on Kubernetes secrets.
 
-Then the Kubernetes manifests created by `cdk8s synth` command will have Kubernetes resources such as `Statefulset`, `Service`, `ClusterRole`, `ClusterRoleBinding`, `ServiceAccount` as follows.
+Then the Kubernetes manifests created by `cdk8s synth` command will have Kubernetes resources such as `Statefulset`, `Service`, `ClusterRole`, `ClusterRoleBinding`, `ServiceAccount`, and `StorageClass` as follows.
 
 <details>
 <summary>manifest.k8s.yaml</summary>
 
 ```yaml
+allowVolumeExpansion: true
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: io1-slow
+parameters:
+  fsType: ext4
+  type: io1
+  iopsPerGB: "10"
+provisioner: kubernetes.io/aws-ebs
+reclaimPolicy: Retain
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -165,7 +198,7 @@ spec:
         resources:
           requests:
             storage: 10Gi
-        storageClassName: gp2
+        storageClassName: io1-slow
 ```
 
 </details>

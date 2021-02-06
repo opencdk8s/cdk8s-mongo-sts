@@ -26,9 +26,29 @@ export interface STSOptions {
   readonly volumeSize?: string;
 
   /**
-   * The storage class to use for our PVC
+   * Option to create storage class, if enabled, a storage class will be created for the statefulset
+   * @default true
    */
-  readonly storageClass?: string;
+  readonly createStorageClass?: boolean;
+
+  /**
+   * The storage class to use for our PVC
+   * @default 'gp2-expandable'
+   */
+  readonly storageClassName?: string;
+
+  /**
+   * Each StorageClass has a provisioner that determines what volume plugin is used for provisioning PVs. This field must be specified.
+   * See [this](https://kubernetes.io/docs/concepts/storage/storage-classes/#provisioner) for Ref
+   * @default 'kubernetes.io/aws-ebs'
+   */
+  readonly volumeProvisioner?: string;
+
+  /**
+   * Storage class params
+   * @default - { type = gp2, fsType: ext4 }
+   */
+  readonly storageClassParams?: { [name: string]: string };
 
   /**
    * Resources requests for the DB.
@@ -82,6 +102,9 @@ export class MyMongo extends Construct {
     const imageName = opts.image;
     const namespace = opts.namespace ?? 'default';
     this.namespace = namespace;
+    var storageClassName = opts.storageClassName ?? 'gp2-expandable';
+    const volumeProvisioner = opts.volumeProvisioner ?? 'kubernetes.io/aws-ebs';
+    const storageClassParams = opts.storageClassParams ?? { type: 'gp2', fsType: 'ext4' };
     const resources = {
       limits: convertQuantity(opts.resources?.limits, {
         cpu: '400m',
@@ -93,6 +116,23 @@ export class MyMongo extends Construct {
       }),
     };
     const labels = { db: name };
+
+    if (opts.createStorageClass === true) {
+      const storageClassOpts: k8s.KubeStorageClassProps = {
+        metadata: {
+          name: opts.storageClassName,
+        },
+        provisioner: volumeProvisioner,
+        allowVolumeExpansion: true,
+        reclaimPolicy: 'Retain',
+        parameters: {
+          ...storageClassParams,
+        },
+      };
+      const storageclass = new k8s.KubeStorageClass(this, 'storageclass', storageClassOpts);
+      this.name = storageclass.name;
+      var storageClassName = storageclass.name;
+    }
 
     const serviceOpts: k8s.KubeServiceProps = {
       metadata: {
@@ -173,7 +213,7 @@ export class MyMongo extends Construct {
       },
       spec: {
         accessModes: ['ReadWriteOnce'],
-        storageClassName: opts.storageClass,
+        storageClassName: storageClassName,
         resources: {
           requests: volumerequest,
         },
@@ -294,6 +334,7 @@ export class MyMongo extends Construct {
 
     const sts = new k8s.KubeStatefulSet(this, 'sts', stsOpts);
     this.name = sts.name;
+
   }
 }
 
