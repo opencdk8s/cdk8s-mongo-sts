@@ -25,7 +25,6 @@ package.json
 pids
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 test/
-.versionrc.json
 tsconfig.json
 yarn-debug.log*
 yarn-error.log*
@@ -38,8 +37,11 @@ yarn-error.log*
 !/.projen/deps.json
 !/.projen/tasks.json
 !/.projenrc.js
+!/.versionrc.json
 !/API.md
 !/LICENSE
+!/package.json
 !/src
+!/test
 !/tsconfig.eslint.json
 !version.json

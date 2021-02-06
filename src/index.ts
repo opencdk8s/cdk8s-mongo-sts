@@ -1,6 +1,6 @@
-import { Construct } from "constructs";
+import { Construct } from 'constructs';
 
-import * as k8s from "./imports/k8s";
+import * as k8s from './imports/k8s';
 
 export interface STSOptions {
   /**
@@ -80,16 +80,16 @@ export class MyMongo extends Construct {
     const defaultReplicas = opts.defaultReplicas ?? 3;
     const replicas = defaultReplicas;
     const imageName = opts.image;
-    const namespace = opts.namespace ?? "default";
+    const namespace = opts.namespace ?? 'default';
     this.namespace = namespace;
     const resources = {
       limits: convertQuantity(opts.resources?.limits, {
-        cpu: "400m",
-        memory: "512Mi",
+        cpu: '400m',
+        memory: '512Mi',
       }),
       requests: convertQuantity(opts.resources?.requests, {
-        cpu: "200m",
-        memory: "256Mi",
+        cpu: '200m',
+        memory: '256Mi',
       }),
     };
     const labels = { db: name };
@@ -100,32 +100,32 @@ export class MyMongo extends Construct {
         name: name,
       },
       spec: {
-        type: "ClusterIP",
-        clusterIP: "None",
+        type: 'ClusterIP',
+        clusterIP: 'None',
         ports: [{ port: 27017, targetPort: k8s.IntOrString.fromNumber(27017) }],
         selector: labels,
       },
     };
-    const svc = new k8s.KubeService(this, "service", serviceOpts);
+    const svc = new k8s.KubeService(this, 'service', serviceOpts);
     this.name = svc.name;
 
     const clusterroleOpts: k8s.KubeClusterRoleProps = {
       metadata: {
         namespace: namespace,
-        name: "get-pods-role",
+        name: 'get-pods-role',
       },
       rules: [
         {
-          verbs: ["list"],
-          apiGroups: ["*"],
-          resources: ["pods"],
+          verbs: ['list'],
+          apiGroups: ['*'],
+          resources: ['pods'],
         },
       ],
     };
     const clusterrole = new k8s.KubeClusterRole(
       this,
-      "clusterrole",
-      clusterroleOpts
+      'clusterrole',
+      clusterroleOpts,
     );
     this.name = clusterrole.name;
 
@@ -137,16 +137,16 @@ export class MyMongo extends Construct {
     };
     const sa = new k8s.KubeServiceAccount(
       this,
-      "serviceaccount",
-      serviceaccountOpts
+      'serviceaccount',
+      serviceaccountOpts,
     );
     this.name = sa.name;
 
     const bindingOpts: k8s.KubeClusterRoleBindingProps = {
       roleRef: {
-        kind: "ClusterRole",
-        apiGroup: "",
-        name: "get-pods-role",
+        kind: 'ClusterRole',
+        apiGroup: '',
+        name: 'get-pods-role',
       },
       metadata: {
         namespace: namespace,
@@ -154,7 +154,7 @@ export class MyMongo extends Construct {
       },
       subjects: [
         {
-          kind: "ServiceAccount",
+          kind: 'ServiceAccount',
           name: name,
           namespace: namespace,
         },
@@ -162,8 +162,8 @@ export class MyMongo extends Construct {
     };
     const clusterrolebinding = new k8s.KubeClusterRoleBinding(
       this,
-      "rolebinding",
-      bindingOpts
+      'rolebinding',
+      bindingOpts,
     );
     this.name = clusterrolebinding.name;
 
@@ -172,7 +172,7 @@ export class MyMongo extends Construct {
         name: name,
       },
       spec: {
-        accessModes: ["ReadWriteOnce"],
+        accessModes: ['ReadWriteOnce'],
         storageClassName: opts.storageClass,
         resources: {
           requests: volumerequest,
@@ -194,35 +194,35 @@ export class MyMongo extends Construct {
           spec: {
             containers: [
               {
-                name: "mongo-sidecar",
-                image: "cvallance/mongo-k8s-sidecar",
+                name: 'mongo-sidecar',
+                image: 'cvallance/mongo-k8s-sidecar',
                 env: [
                   {
-                    name: "MONGO_SIDECAR_POD_LABELS",
+                    name: 'MONGO_SIDECAR_POD_LABELS',
                     value: `db=${name}`,
                   },
                   {
-                    name: "KUBE_NAMESPACE",
+                    name: 'KUBE_NAMESPACE',
                     value: namespace,
                   },
                   {
-                    name: "MONGODB_DATABASE",
-                    value: "admin",
+                    name: 'MONGODB_DATABASE',
+                    value: 'admin',
                   },
                   {
-                    name: "MONGODB_USERNAME",
+                    name: 'MONGODB_USERNAME',
                     valueFrom: {
                       secretKeyRef: {
-                        key: "username",
+                        key: 'username',
                         name: name,
                       },
                     },
                   },
                   {
-                    name: "MONGODB_PASSWORD",
+                    name: 'MONGODB_PASSWORD',
                     valueFrom: {
                       secretKeyRef: {
-                        key: "password",
+                        key: 'password',
                         name: name,
                       },
                     },
@@ -234,19 +234,19 @@ export class MyMongo extends Construct {
                 image: imageName,
                 env: [
                   {
-                    name: "MONGO_INITDB_ROOT_USERNAME",
+                    name: 'MONGO_INITDB_ROOT_USERNAME',
                     valueFrom: {
                       secretKeyRef: {
-                        key: "username",
+                        key: 'username',
                         name: name,
                       },
                     },
                   },
                   {
-                    name: "MONGO_INITDB_ROOT_PASSWORD",
+                    name: 'MONGO_INITDB_ROOT_PASSWORD',
                     valueFrom: {
                       secretKeyRef: {
-                        key: "password",
+                        key: 'password',
                         name: name,
                       },
                     },
@@ -259,19 +259,19 @@ export class MyMongo extends Construct {
                   },
                 ],
                 args: [
-                  "--replSet",
-                  "rs0",
-                  "--bind_ip",
-                  "0.0.0.0",
-                  "--dbpath",
-                  "/data/db",
-                  "--oplogSize",
-                  "128",
+                  '--replSet',
+                  'rs0',
+                  '--bind_ip',
+                  '0.0.0.0',
+                  '--dbpath',
+                  '/data/db',
+                  '--oplogSize',
+                  '128',
                 ],
                 volumeMounts: [
                   {
                     name: name,
-                    mountPath: "/data/db",
+                    mountPath: '/data/db',
                   },
                 ],
               },
@@ -292,7 +292,7 @@ export class MyMongo extends Construct {
       },
     };
 
-    const sts = new k8s.KubeStatefulSet(this, "sts", stsOpts);
+    const sts = new k8s.KubeStatefulSet(this, 'sts', stsOpts);
     this.name = sts.name;
   }
 }
@@ -310,7 +310,7 @@ export class MyMongo extends Construct {
 
 function convertQuantity(
   user: ResourceQuantity | undefined,
-  defaults: { cpu: string; memory: string }
+  defaults: { cpu: string; memory: string },
 ): { [key: string]: k8s.Quantity } {
   // defaults
   if (!user) {

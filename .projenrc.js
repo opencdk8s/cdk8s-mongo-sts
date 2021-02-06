@@ -1,20 +1,20 @@
-const { ConstructLibraryCdk8s } = require("projen");
+const { ConstructLibraryCdk8s } = require('projen');
 
 const project = new ConstructLibraryCdk8s({
-  author: "Hunter Thompson",
-  authorAddress: "aatman@auroville.org.in",
-  cdk8sVersion: "1.0.0-beta.8",
-  defaultReleaseBranch: "main",
-  stability: "experimental",
-  jsiiFqn: "projen.ConstructLibraryCdk8s",
-  name: "cdk8s-mongo-sts",
-  repositoryUrl: "https://github.com/Hunter-Thompson/cdk8s-mongo-sts",
+  author: 'Hunter Thompson',
+  authorAddress: 'aatman@auroville.org.in',
+  cdk8sVersion: '1.0.0-beta.8',
+  defaultReleaseBranch: 'main',
+  stability: 'experimental',
+  jsiiFqn: 'projen.ConstructLibraryCdk8s',
+  name: 'cdk8s-mongo-sts',
+  repositoryUrl: 'https://github.com/Hunter-Thompson/cdk8s-mongo-sts',
 
   /* ConstructLibraryOptions */
   // catalog: undefined,                                                       /* Libraries will be picked up by the construct catalog when they are published to npm as jsii modules and will be published under:. */
   python: {
-    distName: "cdk8s-mongo-sts",
-    module: "cdk8s_mongo_sts",
+    distName: 'cdk8s-mongo-sts',
+    module: 'cdk8s_mongo_sts',
   },
   /* JsiiProjectOptions */
   compat: false /* Automatically run API compatibility test against the latest version published to npm after compilation. */,
@@ -49,16 +49,30 @@ const project = new ConstructLibraryCdk8s({
   // minNodeVersion: undefined,                                                /* Minimum Node.js version to require via package.json `engines` (inclusive). */
   // npmAccess: undefined,                                                     /* Access level of the npm package. */
   // npmDistTag: 'latest',                                                     /* Tags can be used to provide an alias instead of version numbers. */
-  // npmRegistryUrl: 'https://registry.npmjs.org',                             /* The base URL of the npm package registry. */
+  //npmRegistryUrl: 'https://npm.pkg.github.com',
   // npmTaskExecution: NpmTaskExecution.PROJEN,                                /* Determines how tasks are executed when invoked as npm scripts (yarn/npm run xyz). */
   // packageManager: NodePackageManager.YARN,                                  /* The Node Package Manager used to execute scripts. */
   // packageName: undefined,                                                   /* The "name" in package.json. */
   // peerDependencyOptions: undefined,                                         /* Options for `peerDeps`. */
-  peerDeps: ["constructs@^3.3.5"],
+  peerDeps: ['constructs@3.3.5'],
 
-  devDeps: ["constructs@^3.3.5", "prettier", "@commitlint/config-conventional", "@commitlint/cli"],
+  devDeps: [
+    'constructs@3.3.5',
+    'prettier@^2.2.1',
+    'jsii-pacmak@^1.20.1',
+    '@commitlint/config-conventional@^11.0.0',
+    '@commitlint/cli@^11.0.0',
+    'eslint-import-resolver-node@^0.3.4',
+    'eslint-import-resolver-typescript@^2.3.0',
+    'eslint-plugin-import@^2.22.1',
+    'eslint@^7.19.0',
+    'jsii-diff@^1.20.1',
+    'jsii-docgen@^1.8.36',
+    'jsii@^1.20.1',
+    'json-schema@^0.3.0',
+  ],
 
-  deps: ["constructs@^3.3.5"],
+  //deps: ["constructs@^3.3.5"],
   /* Peer dependencies for this module. */
   // projenCommand: 'npx projen',                                              /* The shell command to use in order to run the projen CLI. */
   // repository: undefined,                                                    /* The repository is the location where the actual code for your package lives. */
@@ -76,7 +90,7 @@ const project = new ConstructLibraryCdk8s({
   // copyrightPeriod: undefined,                                               /* The copyright years to put in the LICENSE file. */
   dependabot: false /* Include dependabot configuration. */,
   // dependabotOptions: undefined,                                             /* Options for dependabot. */
-  gitignore: ["package.json", "test/"] /* Additional entries to .gitignore. */,
+  gitignore: ['package.json', 'test/'] /* Additional entries to .gitignore. */,
   jest: false /* Setup jest unit tests. */,
   // jestOptions: undefined,                                                   /* Jest options. */
   // jsiiReleaseVersion: 'latest',                                             /* Version requirement of `jsii-release` which is used to publish modules to npm. */
@@ -97,7 +111,7 @@ const project = new ConstructLibraryCdk8s({
   // releaseBranches: [ 'main' ],                                              /* Branches which trigger a release. */
   // releaseEveryCommit: true,                                                 /* Automatically release new versions every commit to one of branches in `releaseBranches`. */
   // releaseSchedule: undefined,                                               /* CRON schedule to trigger new releases. */
-  // releaseToNpm: false,                                                      /* Automatically release to npm when new versions are introduced. */
+  //releaseToNpm: false,                                                      /* Automatically release to npm when new versions are introduced. */
   // releaseWorkflow: undefined,                                               /* Define a GitHub workflow for releasing from "main" when new versions are bumped. */
   // workflowBootstrapSteps: 'yarn install --frozen-lockfile && yarn projen',  /* Workflow steps to use in order to bootstrap this repo. */
   // workflowContainerImage: undefined,                                        /* Container image to use for GitHub workflows. */
