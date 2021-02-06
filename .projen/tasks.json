@@ -61,13 +61,13 @@
     "release": {
       "name": "release",
       "category": "20.release",
-      "description": "Bumps version & push to main",
+      "description": "Bumps version & push to development",
       "steps": [
         {
           "spawn": "bump"
         },
         {
-          "exec": "git push --follow-tags origin main"
+          "exec": "git push --follow-tags origin development"
         }
       ],
       "condition": "! git log --oneline -1 | grep -q \"chore(release):\""

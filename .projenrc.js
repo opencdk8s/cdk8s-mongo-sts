@@ -4,7 +4,7 @@ const project = new ConstructLibraryCdk8s({
   author: 'Hunter Thompson',
   authorAddress: 'aatman@auroville.org.in',
   cdk8sVersion: '1.0.0-beta.8',
-  defaultReleaseBranch: 'main',
+  defaultReleaseBranch: 'development',
   stability: 'experimental',
   jsiiFqn: 'projen.ConstructLibraryCdk8s',
   name: 'cdk8s-mongo-sts',
@@ -108,7 +108,7 @@ const project = new ConstructLibraryCdk8s({
   // pullRequestTemplateContents: undefined,                                   /* The contents of the pull request template. */
   // rebuildBot: undefined,                                                    /* Installs a GitHub workflow which is triggered when the comment "@projen rebuild" is added to a pull request. */
   // rebuildBotCommand: 'rebuild',                                             /* The pull request bot command to use in order to trigger a rebuild and commit of the contents of the branch. */
-  // releaseBranches: [ 'main' ],                                              /* Branches which trigger a release. */
+  releaseBranches: [ 'development' ],                                              /* Branches which trigger a release. */
   // releaseEveryCommit: true,                                                 /* Automatically release new versions every commit to one of branches in `releaseBranches`. */
   // releaseSchedule: undefined,                                               /* CRON schedule to trigger new releases. */
   //releaseToNpm: false,                                                      /* Automatically release to npm when new versions are introduced. */
