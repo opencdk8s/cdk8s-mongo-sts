@@ -49,8 +49,7 @@ const project = new ConstructLibraryCdk8s({
   // minNodeVersion: undefined,                                                /* Minimum Node.js version to require via package.json `engines` (inclusive). */
   // npmAccess: undefined,                                                     /* Access level of the npm package. */
   // npmDistTag: 'latest',                                                     /* Tags can be used to provide an alias instead of version numbers. */
-  npmRegistryUrl:
-    'https://npm.pkg.github.com' /* The base URL of the npm package registry. */,
+  //npmRegistryUrl: 'https://npm.pkg.github.com',
   // npmTaskExecution: NpmTaskExecution.PROJEN,                                /* Determines how tasks are executed when invoked as npm scripts (yarn/npm run xyz). */
   // packageManager: NodePackageManager.YARN,                                  /* The Node Package Manager used to execute scripts. */
   // packageName: undefined,                                                   /* The "name" in package.json. */
@@ -112,7 +111,7 @@ const project = new ConstructLibraryCdk8s({
   // releaseBranches: [ 'main' ],                                              /* Branches which trigger a release. */
   // releaseEveryCommit: true,                                                 /* Automatically release new versions every commit to one of branches in `releaseBranches`. */
   // releaseSchedule: undefined,                                               /* CRON schedule to trigger new releases. */
-  // releaseToNpm: false,                                                      /* Automatically release to npm when new versions are introduced. */
+  //releaseToNpm: false,                                                      /* Automatically release to npm when new versions are introduced. */
   // releaseWorkflow: undefined,                                               /* Define a GitHub workflow for releasing from "main" when new versions are bumped. */
   // workflowBootstrapSteps: 'yarn install --frozen-lockfile && yarn projen',  /* Workflow steps to use in order to bootstrap this repo. */
   // workflowContainerImage: undefined,                                        /* Container image to use for GitHub workflows. */
