@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/Hunter-Thompson/cdk8s-mongo-sts/compare/v0.0.5...v0.0.6) (2021-02-07)
+
+
+### Features
+
+* make node selectors optional ([#8](https://github.com/Hunter-Thompson/cdk8s-mongo-sts/issues/8)) ([074ba52](https://github.com/Hunter-Thompson/cdk8s-mongo-sts/commit/074ba527a8582eb16f10ce9eca67127a6f066fc7))
+
 ### [0.0.5](https://github.com/Hunter-Thompson/cdk8s-mongo-sts/compare/v0.0.4...v0.0.5) (2021-02-07)
 
 ### [0.0.4](https://github.com/Hunter-Thompson/cdk8s-mongo-sts/compare/v0.0.3...v0.0.4) (2021-02-06)
