@@ -51,6 +51,12 @@ export interface STSOptions {
   readonly storageClassParams?: { [name: string]: string };
 
   /**
+   * nodeSelector params
+   * @default - undefined
+   */
+  readonly nodeSelectorParams?: { [name: string]: string };
+
+  /**
    * Resources requests for the DB.
    * @default - Requests = { CPU = 200m, Mem = 256Mi }, Limits = { CPU = 400m, Mem = 512Mi }
    */
@@ -105,6 +111,7 @@ export class MyMongo extends Construct {
     var storageClassName = opts.storageClassName ?? 'gp2-expandable';
     const volumeProvisioner = opts.volumeProvisioner ?? 'kubernetes.io/aws-ebs';
     const storageClassParams = opts.storageClassParams ?? { type: 'gp2', fsType: 'ext4' };
+    const nodeSelectorParams = opts.nodeSelectorParams ?? undefined;
     const resources = {
       limits: convertQuantity(opts.resources?.limits, {
         cpu: '400m',
@@ -318,9 +325,7 @@ export class MyMongo extends Construct {
             ],
             terminationGracePeriodSeconds: 10,
             serviceAccountName: name,
-            nodeSelector: {
-              database: name,
-            },
+            nodeSelector: nodeSelectorParams,
             securityContext: {
               fsGroup: 999,
               runAsGroup: 999,
