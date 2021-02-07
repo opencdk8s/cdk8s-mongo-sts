@@ -27,9 +27,11 @@ export class MyChart extends Chart {
               fsType: 'ext4',
               iopsPerGB: "10",
             },
+            nodeSelectorParams: {
+              database: "dev",
+            },
         });
-
-  }
+    }
 }
 
 const app = new App();
