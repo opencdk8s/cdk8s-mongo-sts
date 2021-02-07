@@ -1,4 +1,4 @@
-# cdk8s-mongo-sts
+# cdk8s-mongo-sts  ![Release](https://github.com/Hunter-Thompson/cdk8s-mongo-sts/workflows/Release/badge.svg?branch=development)
 
 Create a Replicated, Password protected MongoDB Statefulset on Kubernetes, powered by the [cdk8s project](https://cdk8s.io) 🚀
 

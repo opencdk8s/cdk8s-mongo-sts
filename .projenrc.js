@@ -37,18 +37,10 @@ const project = new ConstructLibraryCdk8s({
   pullRequestTemplate: false,
   releaseBranches: ['development'],
   codeCov: true,
+  releaseEveryCommit: false,
 
   clobber: false,
   readme: true,
-});
-
-const workflow = project.github.addWorkflow('skipci');
-
-workflow.addJobs({
-  skipci: {
-    'runs-on': 'ubuntu-latest',
-    'if': '!contains(github.event.head_commit.message, \'[ci skip]\')',
-  },
 });
 
 project.synth();
