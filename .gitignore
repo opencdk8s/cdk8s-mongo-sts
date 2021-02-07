@@ -11,11 +11,14 @@
 .jsii
 .nyc_output
 .yarn-integrity
+/coverage
 /dist
 /lib
+/test-reports/
 build/Release
 coverage
 jspm_packages/
+junit.xml
 lerna-debug.log*
 lib-cov
 logs
@@ -45,4 +48,5 @@ yarn-error.log*
 !/src
 !/test
 !/tsconfig.eslint.json
+!/tsconfig.jest.json
 !version.json
