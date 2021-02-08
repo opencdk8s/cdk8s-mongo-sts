@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/Hunter-Thompson/cdk8s-mongo-sts/compare/v0.0.7...v0.0.8) (2021-02-08)
+
+
+### Bug Fixes
+
+* **var:** minor variable fix ([1fb7830](https://github.com/Hunter-Thompson/cdk8s-mongo-sts/commit/1fb783038b559074946c00eaecc20ab0dc7fd202))
+
 ### [0.0.7](https://github.com/Hunter-Thompson/cdk8s-mongo-sts/compare/v0.0.6...v0.0.7) (2021-02-08)
 
 ### [0.0.6](https://github.com/Hunter-Thompson/cdk8s-mongo-sts/compare/v0.0.5...v0.0.6) (2021-02-07)
