@@ -127,7 +127,7 @@ export class MyMongo extends Construct {
     if (opts.createStorageClass === true) {
       const storageClassOpts: k8s.KubeStorageClassProps = {
         metadata: {
-          name: opts.storageClassName,
+          name: storageClassName,
         },
         provisioner: volumeProvisioner,
         allowVolumeExpansion: true,
