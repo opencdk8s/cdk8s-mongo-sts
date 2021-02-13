@@ -9,7 +9,7 @@ const project = new ConstructLibraryCdk8s({
   jsiiFqn: 'projen.ConstructLibraryCdk8s',
   name: '@opencdk8s/cdk8s-mongo-sts',
   npmAccess: 'public',
-  repositoryUrl: 'https://github.com/Hunter-Thompson/cdk8s-mongo-sts',
+  repositoryUrl: 'https://github.com/opencdk8s/cdk8s-mongo-sts',
 
   python: {
     distName: 'cdk8s-mongo-sts',

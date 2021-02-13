@@ -2,7 +2,7 @@
   "name": "@opencdk8s/cdk8s-mongo-sts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Hunter-Thompson/cdk8s-mongo-sts"
+    "url": "https://github.com/opencdk8s/cdk8s-mongo-sts"
   },
   "scripts": {
     "projen": "npx projen",
