@@ -7,7 +7,8 @@ const project = new ConstructLibraryCdk8s({
   defaultReleaseBranch: 'development',
   stability: 'experimental',
   jsiiFqn: 'projen.ConstructLibraryCdk8s',
-  name: 'cdk8s-mongo-sts',
+  name: '@opencdk8s/cdk8s-mongo-sts',
+  npmAccess: 'public',
   repositoryUrl: 'https://github.com/Hunter-Thompson/cdk8s-mongo-sts',
 
   python: {

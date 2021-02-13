@@ -1,5 +1,5 @@
 {
-  "name": "cdk8s-mongo-sts",
+  "name": "@opencdk8s/cdk8s-mongo-sts",
   "repository": {
     "type": "git",
     "url": "https://github.com/Hunter-Thompson/cdk8s-mongo-sts"
@@ -66,6 +66,9 @@
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "version": "0.0.8",
+  "publishConfig": {
+    "access": "public"
+  },
   "jest": {
     "testMatch": [
       "**/__tests__/**/*.ts?(x)",
