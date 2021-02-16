@@ -1,4 +1,10 @@
-# cdk8s-mongo-sts  ![Release](https://github.com/Hunter-Thompson/cdk8s-mongo-sts/workflows/Release/badge.svg?branch=development)
+# cdk8s-mongo-sts 
+
+![Release](https://github.com/opencdk8s/cdk8s-mongo-sts/workflows/Release/badge.svg?branch=development)
+[![npm version](https://badge.fury.io/js/cdk8s-mongo-sts.svg)](https://badge.fury.io/js/cdk8s-mongo-sts)
+[![PyPI version](https://badge.fury.io/py/cdk8s-mongo-sts.svg)](https://badge.fury.io/py/cdk8s-mongo-sts)
+![npm](https://img.shields.io/npm/dt/cdk8s-mongo-sts?label=npm&color=green) 
+![PyPi](https://img.shields.io/pypi/dm/cdk8s-mongo-sts?label=pypi&color=green)
 
 Create a Replicated, Password protected MongoDB Statefulset on Kubernetes, powered by the [cdk8s project](https://cdk8s.io) 🚀
 
