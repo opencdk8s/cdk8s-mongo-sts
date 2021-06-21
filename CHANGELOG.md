@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/opencdk8s/cdk8s-mongo-sts/compare/v0.0.8...v0.0.9) (2021-06-21)
+
+
+### Bug Fixes
+
+* constructs dep issue ([#9](https://github.com/opencdk8s/cdk8s-mongo-sts/issues/9)) ([5e3fb37](https://github.com/opencdk8s/cdk8s-mongo-sts/commit/5e3fb374119a25bc8ff981a0d614fd91515abdb1))
+
 ### [0.0.8](https://github.com/Hunter-Thompson/cdk8s-mongo-sts/compare/v0.0.7...v0.0.8) (2021-02-08)
 
 
