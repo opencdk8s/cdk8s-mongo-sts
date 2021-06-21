@@ -38,7 +38,7 @@ const project = new ConstructLibraryCdk8s({
   pullRequestTemplate: false,
   releaseBranches: ['development'],
   codeCov: true,
-  releaseEveryCommit: false,
+  releaseEveryCommit: true,
   // npmRegistry: 'npm.pkg.github.com',
   clobber: false,
   readme: true,
