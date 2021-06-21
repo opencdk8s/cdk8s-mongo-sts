@@ -15,7 +15,7 @@ const project = new ConstructLibraryCdk8s({
     distName: 'cdk8s-mongo-sts',
     module: 'cdk8s_mongo_sts',
   },
-  peerDeps: ['constructs@3.3.5'],
+  peerDeps: ['constructs@^3.3.5'],
 
   devDeps: [
     'constructs@3.3.5',

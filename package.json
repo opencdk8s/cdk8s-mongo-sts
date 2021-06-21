@@ -57,7 +57,7 @@
   "peerDependencies": {
     "cdk8s": "^1.0.0-beta.8",
     "cdk8s-plus-17": "^1.0.0-beta.8",
-    "constructs": "3.3.5"
+    "constructs": "^3.3.5"
   },
   "bundledDependencies": [],
   "keywords": [
